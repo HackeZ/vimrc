@@ -1,0 +1,1 @@
+/Users/HackerZ/.vim/coc-config.vim
