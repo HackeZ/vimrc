@@ -41,6 +41,9 @@ else
     Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
+" ale for checking syntax asynchronously
+Plug 'dense-analysis/ale'
+
 " show git commit message for vim
 Plug 'rhysd/git-messenger.vim'
 
@@ -67,8 +70,11 @@ Plug 'ekalinin/Dockerfile.vim'
 " org-mode
 Plug 'jceb/vim-orgmode'
 
+" mustache
+Plug 'juvenn/mustache.vim'
+
 " coc.nvim
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 
 Plug 'Yggdroot/indentLine'
@@ -425,7 +431,7 @@ nmap <leader>b <Plug>(git-messenger)
 " let g:ale_go_golint_executable = 'revive'
 " let g:ale_go_govet_options = 'govet'
 " let g:ale_lint_on_text_changed = 'normal'
-" let g:ale_sign_error = '>'
+" let g:ale_sign_error = '>>'
 " let g:ale_sign_warning = '!'
 " let g:ale_lint_on_insert_leave = 1
 
