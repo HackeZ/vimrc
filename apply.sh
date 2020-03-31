@@ -12,7 +12,7 @@ replace .vimrc ~/.vimrc
 
 # replace coc setting
 mkdir -p ~/.vim
-replace coc-setting.vim ~/.vim/coc-setting.vim
-replace coc-setting.json ~/.vim/coc-settings.json
+replace coc-config.vim ~/.vim/coc-config.vim
+replace coc-settings.json ~/.vim/coc-settings.json
 
 echo "done"

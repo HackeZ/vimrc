@@ -1,5 +1,7 @@
 # .vimrc
 
+> recommended neovim
+
 ## Install
 
 ### Prerequired
