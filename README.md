@@ -11,8 +11,8 @@
 ### Then Run
 
 ```sh
-$ ./apply.sh
-$ vim -E -c PlugInstall -c q
+$ ./apply.sh && vim -E -c PlugInstall -c q
+$ vim -E -c CocInstall coc-lists coc-go -c q # optional
 ```
 
 
