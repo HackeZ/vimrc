@@ -457,7 +457,7 @@ source ~/.vim/coc-config.vim
 " show all available coc-list
 nnoremap <silent> <space>l  :<C-u>CocList<cr>
 " grep text from current cwd
-nnoremap <silent> <space>s  :<C-u>CocList grep<cr>
+nnoremap <silent> <space>s  :<C-u>CocList --auto-preview --interactive grep<cr>
 
 " for coc-snippets use tab to confirm
 " Use <C-l> for trigger snippet expand.
