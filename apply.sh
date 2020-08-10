@@ -15,4 +15,10 @@ mkdir -p ~/.vim
 replace coc-config.vim ~/.vim/coc-config.vim
 replace coc-settings.json ~/.vim/coc-settings.json
 
+# replace coc setting for neovim if installed
+if nvim -v &> /dev/null
+then
+        replace coc-settings.json ~/.config/nvim/coc-settings.json
+fi
+
 echo "done"
