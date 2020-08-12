@@ -19,7 +19,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " quick align for different language
-Plug 'junegunn/vim-easy-align'
+" Plug 'junegunn/vim-easy-align'
 
 " lightline
 Plug 'itchyny/lightline.vim'
@@ -77,6 +77,7 @@ Plug 'juvenn/mustache.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 
+Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'chiel92/vim-autoformat'
 Plug 'hotoo/pangu.vim'
@@ -244,7 +245,7 @@ set cursorline
 " set cursorcolumn
 
 " 共享剪贴板
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 " 文件被改动时自动载入
 set autoread
 " 顶部底部保持4行距离
