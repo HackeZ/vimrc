@@ -19,6 +19,8 @@ replace coc-settings.json ~/.vim/coc-settings.json
 if nvim -v &> /dev/null
 then
         replace coc-settings.json ~/.config/nvim/coc-settings.json
+else
+        echo 'no neovim found, please install it and run me again.'
 fi
 
 echo "done"
