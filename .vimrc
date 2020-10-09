@@ -163,7 +163,8 @@ endif
 " 指定配色方案是256色
 " set t_Co=256
 
-set wildmode=list:longest
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 
 " 去掉有关vi一致性模式，避免以前版本的一些bug和局限，解决backspace不能使用的问题
 set backspace=indent,eol,start
@@ -276,6 +277,9 @@ au! Syntax thrift source ~/.vim/thrift.vim
 " -------------------------------------------------------------------------------------------------
 set rtp+=/usr/local/opt/fzf
 nmap <C-p> :FZF<CR>
+
+" ignore generated files for nodejs / rust and so on
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
 " add preview window (from bat) for `:Files` command
 command! -bang -nargs=? -complete=dir Files
