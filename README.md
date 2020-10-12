@@ -13,6 +13,6 @@
 
 ```sh
 $ ./apply.sh && vim -E -c PlugInstall -c q
-$ vim -E -c CocInstall coc-lists coc-snippets coc-go -c q # optional
+$ vim -E -c CocInstall coc-lists coc-snippets coc-translator coc-go -c q # optional
 ```
 
