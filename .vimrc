@@ -252,6 +252,9 @@ set autoread
 " 顶部底部保持4行距离
 set scrolloff=4
 
+" Use Ctrl+b to open list of buffers
+nmap <C-b> :Buffers<CR>
+
 " use popup window instead of preview window
 " set previewpopup=height:10,width:60
 
@@ -328,8 +331,7 @@ let g:go_disable_autoinstall=0
 " NERDTree
 " -------------------------------------------------------------------------------------------------
 let g:NERDTreeWinPos = "right"
-nmap <C-b> :NERDTreeFind<CR>
-nmap <Leader>B :NERDTreeToggle<CR>
+nmap <Leader><C-b> :NERDTreeFind<CR>
 
 " -------------------------------------------------------------------------------------------------
 " nerdcomment
