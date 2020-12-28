@@ -18,6 +18,9 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" vim motion on speed
+Plug 'easymotion/vim-easymotion'
+
 " quick align for different language
 " Plug 'junegunn/vim-easy-align'
 
@@ -66,6 +69,9 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
 " docker
 Plug 'ekalinin/Dockerfile.vim'
+
+" html/css
+Plug 'jvanja/vim-bootstrap4-snippets', { 'for': 'html' }
 
 " org-mode
 Plug 'jceb/vim-orgmode'
@@ -116,8 +122,8 @@ set guifont=JetBrains\ Mono:h13
 set linespace=2
 
 " set guifont=Roboto\ Mono\ for\ Powerline:h16 " recommended
-" set gfn=Source\ Code\ Pro:h15
-" set gfn=Fira\ Code:h17
+" set guifont=Source\ Code\ Pro:h15
+" set guifont=Fira\ Code:h17
 
 " 配色方案
 " colorscheme solarized
@@ -282,7 +288,7 @@ set rtp+=/usr/local/opt/fzf
 nmap <C-p> :FZF<CR>
 
 " ignore generated files for nodejs / rust and so on
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -type f -print -o -type l -print 2> /dev/null"
 
 " add preview window (from bat) for `:Files` command
 command! -bang -nargs=? -complete=dir Files
@@ -297,7 +303,7 @@ command! -bang -nargs=? -complete=dir Files
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 
-" coc
+" coc status bar
 " let g:airline#extensions#coc#enabled = 1
 " let airline#extensions#coc#error_symbol = '>'
 " let airline#extensions#coc#warning_symbol = '!'
@@ -331,7 +337,8 @@ let g:go_disable_autoinstall=0
 " NERDTree
 " -------------------------------------------------------------------------------------------------
 let g:NERDTreeWinPos = "right"
-nmap <Leader><C-b> :NERDTreeFind<CR>
+nmap <Leader><C-b> :NERDTreeToggle \| :NERDTreeFind<CR>
+" nmap <Leader>B :NERDTreeToggle<CR>
 
 " -------------------------------------------------------------------------------------------------
 " nerdcomment

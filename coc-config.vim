@@ -142,3 +142,6 @@ endfunction
 
 " Keymapping for grep word under cursor with interactive mode
 nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
+" for coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
