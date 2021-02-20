@@ -86,6 +86,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'chiel92/vim-autoformat'
+Plug 'tpope/vim-surround'
 Plug 'hotoo/pangu.vim'
 
 call plug#end()
