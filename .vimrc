@@ -141,7 +141,7 @@ set linespace=2
 " scheme4
 " 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
 " -------------------------------------------------------------------------------------------------
-let g:material_theme_style = 'ocean'
+let g:material_theme_style = 'default'
 let g:lightline = { 'colorscheme': 'material_vim' }
 colorscheme material
 
@@ -195,10 +195,10 @@ set expandtab
 set tabstop=4
 
 " 统一缩进为4，方便在开启了et后使用退格(backspace)键，每次退格将删除X个空格
-" set softtabstop=4
+set softtabstop=4
 
 " 设定自动缩进为4个字符，程序中自动缩进所使用的空白长度
-" set shiftwidth=4
+set shiftwidth=4
 
 " 设置帮助文件为中文(需要安装vimcdoc文档)
 set helplang=cn
@@ -475,7 +475,7 @@ nnoremap <silent> <space>s  :<C-u>CocList --auto-preview --interactive grep<cr>
 
 " for coc-snippets use tab to confirm
 " Use <C-l> for trigger snippet expand.
-nmap <C-l> :<C-u>CocCommand prettier.formatFile<CR>
+nmap <C-l> :call CocAction('format')<CR>
 
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
