@@ -61,7 +61,7 @@ Plug 'sainnhe/edge'
 
 " go
 Plug 'buoto/gotests-vim', { 'for': 'go' }
-Plug 'fatih/vim-go', { 'tag': '*', 'for': 'go', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -411,7 +411,9 @@ let g:go_highlight_types = 1
 
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0
+" let g:go_def_mapping_enabled = 0
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 autocmd BufWritePost *.go normal! zv
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
