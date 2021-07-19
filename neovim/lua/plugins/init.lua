@@ -1,3 +1,5 @@
+-- Plugins all comes from: https://github.com/HeWenJin/config/
+
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -81,8 +83,8 @@ return require('packer').startup(function(use)
 	use { 'onsails/lspkind-nvim', config = function() require('lspkind').init(require('plugins.lspkind')) end }
 
 
-	use {
-		'hrsh7th/nvim-compe',
+	use { 
+		'hrsh7th/nvim-compe', 
 		event = 'InsertEnter',
 		config = [[ require("plugins.nvim-compe") ]],
 		requires = {
@@ -109,7 +111,7 @@ return require('packer').startup(function(use)
 
 	-- A file explorer for Neovim
 	use {
-		'kyazdani42/nvim-tree.lua',
+		'kyazdani42/nvim-tree.lua', 
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		setup = [[vim.g.nvim_tree_side = 'right']],
 	}
@@ -145,7 +147,12 @@ return require('packer').startup(function(use)
 	---------------------------------------------------------------
 	-- GIT PLUGINS
 	---------------------------------------------------------------
-	use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
+	use {
+	    'lewis6991/gitsigns.nvim',
+	    config = function() require('gitsigns').setup{
+		current_line_blame = true,
+	    } end
+	}
 	use { 'kdheepak/lazygit.nvim'}
 	use { 'sindrets/diffview.nvim', config = function() require('diffview').setup(require('plugins.diffview')) end}
 
@@ -154,7 +161,13 @@ return require('packer').startup(function(use)
 	---------------------------------------------------------------
 
 	use {'b3nj5m1n/kommentary'}
-	--  highlight and search for todo comments like TODO, HACK, BUG in your code base.
-	--  OPTION FLAGS: PERF | HACK | TODO | NOTE | FIX | WARNING
+	-- highlight and search for todo comments like TODO, HACK, BUG in your code base.
+	-- OPTION FLAGS:
+	-- PERF:
+	-- HACK:
+	-- TODO:
+	-- NOTE:
+	-- FIX:
+	-- WARNING:
 	use {'folke/todo-comments.nvim', config = function() require('todo-comments').setup{} end}
 end)
