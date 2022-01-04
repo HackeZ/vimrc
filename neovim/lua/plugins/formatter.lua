@@ -35,7 +35,7 @@ return {
         function()
           return {
             exe = "lua-format",
-            args = {"--indent-width", 2},
+            args = {"--indent-width", 4},
             stdin = true
           }
         end

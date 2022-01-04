@@ -1,20 +1,48 @@
+function goimports(timeout_ms)
+    local context = {only = {"source.organizeImports"}}
+    vim.validate {context = {context, "t", true}}
+
+    local params = vim.lsp.util.make_range_params()
+    params.context = context
+
+    -- See the implementation of the textDocument/codeAction callback
+    -- (lua/vim/lsp/handler.lua) for how to do this properly.
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction",
+                                            params, timeout_ms)
+    if not result or next(result) == nil then return end
+    local actions = result[1].result
+    if not actions then return end
+    local action = actions[1]
+
+    -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
+    -- is a CodeAction, it can have either an edit, a command or both. Edits
+    -- should be executed first.
+    if action.edit or type(action.command) == "table" then
+        if action.edit then
+            vim.lsp.util.apply_workspace_edit(action.edit)
+        end
+        if type(action.command) == "table" then
+            vim.lsp.buf.execute_command(action.command)
+        end
+    else
+        vim.lsp.buf.execute_command(action)
+    end
+
+    -- always do formatting
+    vim.lsp.buf.formatting()
+end
+
+vim.api.nvim_exec([[ autocmd BufWritePre *.go lua goimports(1000) ]], false)
+
 return {
-  Go = {
-    runtime = {
-      -- LuaJIT in the case of Neovim
-      version = 'LuaJIT',
-      path = vim.split(package.path, ';'),
+    -- cmd = {"gopls", "serve"},
+    settings = {
+        gopls = {
+            usePlaceholders = true,
+            experimentalPostfixCompletions = true,
+            analyses = {unusedparams = true, shadows = true},
+            staticcheck = true
+        }
     },
-    diagnostics = {
-      -- Get the language server to recognize the `vim` global
-      globals = {'vim'},
-    },
-    workspace = {
-      -- Make the server aware of Neovim runtime files
-      library = {
-        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-      },
-    },
-  }
+    flags = {debounce_text_changes = 500}
 }
